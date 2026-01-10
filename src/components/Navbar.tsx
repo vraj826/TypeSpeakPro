@@ -39,7 +39,8 @@ const Navbar = ({ forceOpaque = false }: NavbarProps) => {
     { href: '/', label: 'Home' },
 
     { href: '/practice', label: 'Typing Test' },
-    { href: '/#voice', label: 'Voice Practice', isComingSoon: true },
+    { href: '/voice-practice', label: 'Voice Practice' },
+    { href: '/verbal-practice', label: 'Verbal Practice' },
     { href: '/#benefits', label: 'Benefits' },
   ];
 
@@ -88,7 +89,7 @@ const Navbar = ({ forceOpaque = false }: NavbarProps) => {
               key={link.href}
               href={link.href}
               className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
-              onClick={(e) => link.isComingSoon ? handleNavClick(e, link) : undefined}
+              onClick={(e) => (link as any).isComingSoon ? handleNavClick(e, link) : undefined}
             >
               {link.label}
             </a>

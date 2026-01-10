@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { Activity, Zap, Keyboard, Trophy, Calendar, User, Mail, Shield } from "lucide-react";
+import { Activity, Zap, Keyboard, Trophy, Calendar, User, Mail, Shield, BookOpen } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
 import Navbar from "@/components/Navbar";
 import { supabase } from "@/lib/supabase";
 import { format, subDays, startOfDay, endOfDay } from 'date-fns';
 
 const Dashboard = () => {
+    const navigate = useNavigate();
     const { user } = useAuth();
     const [fullHistory, setFullHistory] = useState<any[]>([]);
     const [isHistoryOpen, setIsHistoryOpen] = useState(false);
@@ -50,9 +52,6 @@ const Dashboard = () => {
         const avgWpm = totalTests > 0 ? Math.round(allResults.reduce((acc, curr) => acc + curr.wpm, 0) / totalTests) : 0;
         const avgAccuracy = totalTests > 0 ? Math.round(allResults.reduce((acc, curr) => acc + curr.accuracy, 0) / totalTests) : 0;
         const totalTimeSeconds = allResults.reduce((acc, curr) => acc + curr.time_duration, 0);
-        // Format Total Time (e.g., 2h 30m)
-        const totalHours = Math.floor(totalTimeSeconds / 3600);
-        const totalMinutes = Math.floor((totalTimeSeconds % 3600) / 60);
 
         const bestWpm = totalTests > 0 ? Math.max(...allResults.map(r => r.wpm)) : 0;
 
@@ -77,21 +76,6 @@ const Dashboard = () => {
         });
 
         // 2. Prepare Weekly Chart Data
-        const last7Days = Array.from({ length: 7 }, (_, i) => {
-            const d = subDays(new Date(), 6 - i);
-            return format(d, 'EEE'); // "Mon", "Tue"
-        });
-
-        // Group by day using native date to match 'EEE' format logic
-        const chartData = last7Days.map(dayName => {
-            // Find results that match this day name
-            // Note: This is a simple approximation. For strict correctness we'd use date ranges.
-            // Let's do imprecise matching for visual simplicity or precise if we have dates.
-            // Better: Filter results created on that specific date range.
-            return { day: dayName, wpm: 0, accuracy: 0, count: 0 };
-        });
-
-        // Re-iterate with precise logic:
         const today = new Date();
         const dailyStats = [];
 
@@ -235,6 +219,18 @@ const Dashboard = () => {
                             <p className="text-xs text-neutral-500 mt-1">Total sessions</p>
                         </CardContent>
                     </Card>
+                    <Card className="bg-neutral-900/50 border-white/5 backdrop-blur-sm hover:bg-neutral-900/80 transition-all duration-300 group cursor-pointer" onClick={() => navigate('/verbal-practice')}>
+                        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                            <CardTitle className="text-sm font-medium text-neutral-400 group-hover:text-green-400 transition-colors">
+                                Verbal Practice
+                            </CardTitle>
+                            <BookOpen className="h-4 w-4 text-green-500" />
+                        </CardHeader>
+                        <CardContent>
+                            <div className="text-2xl font-bold text-white">Start</div>
+                            <p className="text-xs text-neutral-500 mt-1">Improve vocabulary</p>
+                        </CardContent>
+                    </Card>
                 </div>
 
                 {/* Charts Section */}
@@ -356,7 +352,7 @@ const Dashboard = () => {
                     </Card>
                 </div>
 
-                {/* Full History Modal - Adding this inline for speed, could be component */}
+                {/* Full History Modal */}
                 {isHistoryOpen && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in">
                         <div className="bg-neutral-900 border border-white/10 rounded-xl w-full max-w-4xl max-h-[80vh] flex flex-col shadow-2xl animate-in zoom-in-95 duration-300">
