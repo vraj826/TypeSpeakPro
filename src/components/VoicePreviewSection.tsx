@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Mic, MicOff, Volume2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const VoicePreviewSection = () => {
+  const navigate = useNavigate();
   const [isRecording, setIsRecording] = useState(false);
   const [hasRecording, setHasRecording] = useState(false);
 
@@ -42,15 +44,14 @@ const VoicePreviewSection = () => {
                 {Array.from({ length: 40 }).map((_, i) => (
                   <div
                     key={i}
-                    className={`w-1 rounded-full transition-all duration-300 ${
-                      isRecording ? 'bg-accent' : hasRecording ? 'bg-primary/50' : 'bg-muted'
-                    }`}
+                    className={`w-1 rounded-full transition-all duration-300 ${isRecording ? 'bg-accent' : hasRecording ? 'bg-primary/50' : 'bg-muted'
+                      }`}
                     style={{
-                      height: isRecording 
+                      height: isRecording
                         ? `${20 + Math.sin(i * 0.5 + Date.now() * 0.005) * 30}px`
-                        : hasRecording 
-                        ? `${10 + Math.sin(i * 0.3) * 20}px`
-                        : '8px',
+                        : hasRecording
+                          ? `${10 + Math.sin(i * 0.3) * 20}px`
+                          : '8px',
                       animationDelay: `${i * 0.05}s`,
                     }}
                   />
@@ -61,11 +62,10 @@ const VoicePreviewSection = () => {
               <div className="flex justify-center mb-6">
                 <button
                   onClick={handleRecord}
-                  className={`w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 ${
-                    isRecording 
-                      ? 'bg-destructive shadow-[0_0_40px_hsl(0_84%_60%/0.5)] scale-110' 
-                      : 'bg-accent shadow-[0_0_30px_hsl(280_100%_65%/0.4)] hover:scale-105'
-                  }`}
+                  className={`w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 ${isRecording
+                    ? 'bg-destructive shadow-[0_0_40px_hsl(0_84%_60%/0.5)] scale-110'
+                    : 'bg-accent shadow-[0_0_30px_hsl(280_100%_65%/0.4)] hover:scale-105'
+                    }`}
                 >
                   {isRecording ? (
                     <MicOff className="w-8 h-8 text-foreground" />
@@ -120,7 +120,7 @@ const VoicePreviewSection = () => {
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
               Practice your pronunciation and communication skills with real interview questions. Get instant feedback on fluency, confidence, and clarity.
             </p>
-            
+
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
@@ -141,9 +141,9 @@ const VoicePreviewSection = () => {
                 <span className="text-foreground">Confidence score tracking</span>
               </div>
             </div>
-            
+
             <div className="flex flex-wrap gap-4">
-              <Button variant="accent" size="lg">
+              <Button variant="accent" size="lg" onClick={() => navigate('/voice-practice')}>
                 Try Voice Practice
               </Button>
               <Button variant="outline" size="lg">

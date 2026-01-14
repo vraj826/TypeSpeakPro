@@ -1,73 +1,79 @@
-# Welcome to your Lovable project
+# TypeSpeak Pro 🚀
+### The World's First Dual-Engine Communication Trainer.
 
-## Project info
+[![Designed by Sufal Basak](https://img.shields.io/badge/Designed%20%26%20Engineered%20by-Sufal%20Basak-blueviolet?style=for-the-badge)](https://github.com/SufalBasak)
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+![TypeSpeak Pro Banner](./public/logo.jpg)
 
-## How can I edit this code?
+## 💡 The Vision
+**This is not just another typing test.**
 
-There are several ways of editing your application.
+Most platforms stop at keyboard proficiency. **TypeSpeak Pro** goes further, recognizing that modern communication is a dual discipline: **written speed** and **spoken clarity**.
 
-**Use Lovable**
+I built this platform to be the ultimate training ground for both. It merges high-velocity typing challenges with **advanced verbal practice scenarios**, helping you master the art of articulate speech. Whether it's nailing a job interview or commanding a room, TypeSpeak Pro processes your vocal patterns in real-time to build confidence, reduce filler words, and refine your delivery.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+It is a completely original architecture designed to train the modern professional's full communication stack—synchronizing *thought*, *speech*, and *action*.
 
-Changes made via Lovable will be committed automatically to this repo.
+**-- Sufal Basak**
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## ⚡ Key Innovations
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 1. Dual-Engine Architecture
+Unlike standard apps that use simple CRUD operations, TypeSpeak Pro runs two parallel processing engines:
+*   **The Reflex Engine**: A low-latency typing core that tracks millisecond-level keystroke dynamics to analyze rhythm and cognitive load.
+*   **The Vocal Engine**: A real-time audio analysis pipeline that processes speech patterns for clarity, pacing, and sentiment.
 
-Follow these steps:
+### 2. Custom AI Adversaries
+I didn't want generic bots. I built **Adaptive AI Opponents** from scratch:
+*   **SpeedDemon**: Algorithms designed to mimic burst-typing patterns of competitive gamers.
+*   **TechTitan**: A steady-state efficient typer calibrated to emulate professional coding speeds.
+*   *The AI adapts in real-time to challenge, but not overwhelm, the user.*
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 3. The "Prime" Roadmap
+On **Feb 14, 2026**, I will be unveiling the **Prime Version**—introducing a proprietary "Sentiment-First" algorithm that judges not just *what* you say, but *how* you say it during high-pressure simulations.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🛠️ Technical Architecture
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+This project showcases advanced full-stack engineering capabilities:
 
-**Edit a file directly in GitHub**
+*   **Real-Time Synchronization**: Leveraging **Supabase Realtime** for sub-100ms latency in multiplayer races.
+*   **Performance Optimization**: Built on **React + Vite** with aggressive code-splitting and memoization to ensure 60FPS animations even during heavy audio processing.
+*   **Modern UI/UX**: A custom adaptation of **Tailwind CSS** and **Shadcn/UI**, featuring glassmorphism and dynamic lighting effects inspired by top-tier SaaS interfaces.
+*   **Type Safety**: 100% **TypeScript** codebase for enterprise-grade reliability and maintainability.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 🚀 Getting Started
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Want to run this innovation locally?
 
-## What technologies are used for this project?
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/SufalBasak/TypeSpeakPro.git
+    ```
 
-This project is built with:
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+3.  **Run the core**
+    ```bash
+    npm run dev
+    ```
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 👤 Author
 
-## Can I connect a custom domain to my Lovable project?
+**Sufal Basak**
+*Full Stack Developer & Product Engineer*
 
-Yes, you can!
+*   **GitHub**: [@SufalBasak](https://github.com/SufalBasak)
+*   **Email**: [Reach Out](mailto:sufalbasak199@gmail.com)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+*Creating the future of communication, one keystroke at a time.*

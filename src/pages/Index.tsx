@@ -8,10 +8,12 @@ import BenefitsSection from '@/components/BenefitsSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
+import WelcomeVideoModal from '@/components/WelcomeVideoModal';
 
 const Index = () => {
   return (
     <main className="min-h-screen bg-background">
+      <WelcomeVideoModal />
       <Navbar />
       <HeroSection />
       <FeaturesSection />

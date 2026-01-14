@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Keyboard, Mic, Play, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   const [typedText, setTypedText] = useState('');
   const fullText = 'Master Typing Speed & Communication';
-  
+
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
@@ -24,11 +26,11 @@ const HeroSection = () => {
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(186_100%_50%/0.1)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,hsl(280_100%_65%/0.08)_0%,transparent_50%)]" />
-      
+
       {/* Floating Elements */}
       <div className="absolute top-1/4 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse-glow" />
       <div className="absolute bottom-1/4 right-10 w-48 h-48 bg-accent/5 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }} />
-      
+
       {/* Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
 
@@ -55,12 +57,12 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            <Button variant="hero" size="xl" className="group">
+            <Button variant="hero" size="xl" className="group" onClick={() => navigate('/practice')}>
               <Keyboard className="w-5 h-5" />
               Start Free Test
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button variant="heroOutline" size="xl" className="group">
+            <Button variant="heroOutline" size="xl" className="group" onClick={() => navigate('/voice-practice')}>
               <Mic className="w-5 h-5" />
               Try Voice Practice
             </Button>
@@ -85,7 +87,7 @@ const HeroSection = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Typing Preview */}
               <div className="font-mono text-left text-lg md:text-xl leading-relaxed mb-6">
                 <span className="text-success">The quick brown fox jumps over the lazy</span>
@@ -96,11 +98,10 @@ const HeroSection = () => {
               {/* Keyboard Hint */}
               <div className="flex justify-center gap-1">
                 {['T', 'y', 'p', 'e'].map((key, i) => (
-                  <div 
-                    key={i} 
-                    className={`w-10 h-10 rounded-lg flex items-center justify-center font-mono text-sm ${
-                      i === 0 ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground'
-                    }`}
+                  <div
+                    key={i}
+                    className={`w-10 h-10 rounded-lg flex items-center justify-center font-mono text-sm ${i === 0 ? 'bg-primary text-primary-foreground' : 'bg-secondary text-muted-foreground'
+                      }`}
                   >
                     {key}
                   </div>
