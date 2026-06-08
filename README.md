@@ -57,6 +57,26 @@ This project showcases advanced full-stack engineering capabilities:
 
 ---
 
+## 📸 Feature Screenshots
+
+### 🏠 Homepage
+![Homepage](docs/screenshots/Homepage.png)
+
+### ✨ Features Overview
+![Features](docs/screenshots/Features.png)
+
+### ⌨️ Typing Practice
+![Typing Practice](docs/screenshots/TypingPractice.png)
+
+### 🎤 Voice Practice
+![Voice Practice](docs/screenshots/VoicePractice.png)
+
+### 🧠 Verbal Ability
+![Verbal Ability](docs/screenshots/VerbalAbility.png)
+
+### 💼 Interview Preparation
+![Interview Preparation](docs/screenshots/InterviewPreparation.png)
+
 ## 🚀 Getting Started
 
 Want to run this innovation locally?
