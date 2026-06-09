@@ -56,7 +56,7 @@ const TypingTest = ({ onComplete, initialMultiplayer = false, aiMode = false, in
     const [targetText, setTargetText] = useState(() => generateWords(100, false, false, 'medium'));
     const [userInput, setUserInput] = useState('');
     const [startTime, setStartTime] = useState<number | null>(null);
-    const [timeLeft, setTimeLeft] = useState(30);
+    const [timeLeft, setTimeLeft] = useState<number>(initialConfig?.duration ?? 30);
     const [isActive, setIsActive] = useState(false);
     const [wpm, setWpm] = useState(0);
     const [accuracy, setAccuracy] = useState(100);
@@ -74,11 +74,11 @@ const TypingTest = ({ onComplete, initialMultiplayer = false, aiMode = false, in
     }, [multiplayer.gameState, multiplayer.startTime]);
 
     // Config State
-    const [mode, setMode] = useState<TypingMode>('words');
-    const [difficulty, setDifficulty] = useState<Difficulty>('medium');
-    const [selectedTime, setSelectedTime] = useState(30);
-    const [includeNumbers, setIncludeNumbers] = useState(false);
-    const [includePunctuation, setIncludePunctuation] = useState(false);
+    const [mode, setMode] = useState<TypingMode>(initialConfig?.mode ?? 'words');
+    const [difficulty, setDifficulty] = useState<Difficulty>(initialConfig?.difficulty ?? 'medium');
+    const [selectedTime, setSelectedTime] = useState<number>(initialConfig?.duration ?? 30);
+    const [includeNumbers, setIncludeNumbers] = useState<boolean>(initialConfig?.includeNumbers ?? false);
+    const [includePunctuation, setIncludePunctuation] = useState<boolean>(initialConfig?.includePunctuation ?? false);
 
     const [isFinished, setIsFinished] = useState(false);
     const [history, setHistory] = useState<{ time: number; wpm: number; raw: number }[]>([]);
